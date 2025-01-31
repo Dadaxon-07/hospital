@@ -1,16 +1,7 @@
 # hospital
+ <h2>Onboarding page</h2>
 
-A new Flutter project.
+![image](https://github.com/user-attachments/assets/a7d52542-5c2b-41bf-bae3-0e1bc92118b4)  ![image](https://github.com/user-attachments/assets/f5e82e28-226a-40d0-95bd-9de0416f4c10)  ![image](https://github.com/user-attachments/assets/00506f7f-c291-4b78-9dbc-170ae63ac649)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
