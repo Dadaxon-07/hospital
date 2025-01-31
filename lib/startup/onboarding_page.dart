@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:hospital/home/dashboard_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../home/dashboard_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   static final String id = 'intro_page';
@@ -13,6 +17,7 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   final PageController _controller = PageController();
   int currenIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,34 +28,29 @@ class _OnboardingPageState extends State<OnboardingPage> {
             children: [
               buildPage(
                 color: Colors.white,
-                image:
-                    'assets/intro_images/intro-1.png', // Replace with your asset
+                image: 'assets/intro_images/intro-1.png',
                 title: "Qo'shimcha ish daromadi",
-                subtitle: "A set of different tests",
+                subtitle: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
               ),
               buildPage(
                 color: Colors.white,
-                image:
-                    'assets/intro_images/intro-2.png', // Replace with your asset
-                title: "Bemorlarni onlyan qabul qilish va davolash",
-                subtitle: "Compete with others, share your scores",
+                image: 'assets/intro_images/intro-2.png',
+                title: "Be'morlarni onlayn qabul qilish va davolash",
+                subtitle: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
               ),
               buildPage(
                 color: Colors.white,
-                image:
-                    'assets/intro_images/intro-3.png', // Replace with your asset
-                title: "Bemorlarni uylariga borib davolash va qo'shimcha daromad olish",
-                subtitle: "See where you rank among others",
+                image: 'assets/intro_images/intro-3.png',
+                title:
+                    "Bemorlarni uylariga borib davolash va qo'shimcha daromad olish",
+                subtitle: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
               ),
             ],
           ),
-          SizedBox(
-            height: 40,
-          ),
           Positioned(
-            bottom: 60,
-            left: 20,
-            right: 20,
+            bottom: 35.h,
+            left: 20.w,
+            right: 20.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -60,52 +60,69 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   effect: SwapEffect(
                     activeDotColor: Colors.blue,
                     dotColor: Colors.grey.shade300,
-                    dotHeight: 10,
-                    dotWidth: 10,
+                    dotHeight: 10.h,
+                    dotWidth: 10.w,
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height / 30),
-                Container(
-                  height: 50,
-                  width: 320,
-                  decoration: BoxDecoration(
+                SizedBox(height: 20.h),
+                InkWell(
+                  onTap: () {
+                    if (_controller.page!.toInt() == 2) {
+                      // Finish action
+                    }
+                    else {
+                      _controller.nextPage(
+                        duration: Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    }
+
+                  },
+                  child: Container(
+                    height: 50.h,
+                    width: 290.w,
+                    decoration: BoxDecoration(
                       color: Color.fromARGB(255, 0, 122, 253),
-                      borderRadius: BorderRadius.circular(35)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 10.5,
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          if (_controller.page!.toInt() == 2) {
-                            // Finish action
-                          } else {
-                            _controller.nextPage(
-                              duration: Duration(milliseconds: 500),
-                              curve: Curves.easeInOut,
-                            );
-                          }
-                        },
-                        child: Text(
+                      borderRadius: BorderRadius.circular(35.r),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(width: 30.w),
+                        Text(
                           "Keyingisi",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 15),
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 15,
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(9.0),
-                        child: Icon(
-                          Icons.navigate_next,
-                          color: Colors.white,
+                        Padding(
+                          padding: EdgeInsets.all(9),
+                          child: Icon(Icons.navigate_next,
+                              color: Colors.white, size: 24),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                )
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 100,
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DashboardPage(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "O'tkazib yuborish",
+                    style: TextStyle(color: Colors.grey, fontSize: 17),
+                  ),
+                ),
               ],
             ),
           )
@@ -123,29 +140,31 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Container(
       color: color,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset(image, height: 280, width: 280, fit: BoxFit.cover,), // Adjust image size as needed
-          SizedBox(height: 40),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30),
-            child: Text(
-              title,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+          SizedBox(height: 40.h,),
+          Image.asset(image,
+              height: MediaQuery.of(context).size.height / 2.6,
+              width: MediaQuery.of(context).size.width / 1),
+          SizedBox(height: 35.h),
+          Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 250.w), // Maksimal kenglik
+              child: Text(
+                title,
+                textAlign: TextAlign.center, // Matnni o‘rtaga joylashtirish
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w800),
               ),
             ),
           ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          SizedBox(height: 20.h),
+          ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: 150, maxWidth: 380),
             child: Text(
               subtitle,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 color: Colors.black,
               ),
             ),
