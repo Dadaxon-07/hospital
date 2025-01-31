@@ -22,24 +22,24 @@ class _OnboardingPageState extends State<OnboardingPage> {
             controller: _controller,
             children: [
               buildPage(
-                color: Color.fromARGB(255, 45, 95, 255),
+                color: Colors.white,
                 image:
                     'assets/intro_images/intro-1.png', // Replace with your asset
-                title: "Test run",
+                title: "Qo'shimcha ish daromadi",
                 subtitle: "A set of different tests",
               ),
               buildPage(
-                color: Color.fromARGB(255, 45, 95, 255),
+                color: Colors.white,
                 image:
                     'assets/intro_images/intro-2.png', // Replace with your asset
-                title: "Join the community",
+                title: "Bemorlarni onlyan qabul qilish va davolash",
                 subtitle: "Compete with others, share your scores",
               ),
               buildPage(
-                color: Color.fromARGB(255, 45, 95, 255),
+                color: Colors.white,
                 image:
                     'assets/intro_images/intro-3.png', // Replace with your asset
-                title: "Check the leaderboard",
+                title: "Bemorlarni uylariga borib davolash va qo'shimcha daromad olish",
                 subtitle: "See where you rank among others",
               ),
             ],
@@ -64,14 +64,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     dotWidth: 10,
                   ),
                 ),
-                SizedBox(
-                  height: 25,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height / 30),
                 Container(
                   height: 50,
                   width: 320,
                   decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: Color.fromARGB(255, 0, 122, 253),
                       borderRadius: BorderRadius.circular(35)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,14 +77,32 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 10.5,
                       ),
-                      Text(
-                        "Keyingisi",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15),
+                      TextButton(
+                        onPressed: () {
+                          if (_controller.page!.toInt() == 2) {
+                            // Finish action
+                          } else {
+                            _controller.nextPage(
+                              duration: Duration(milliseconds: 500),
+                              curve: Curves.easeInOut,
+                            );
+                          }
+                        },
+                        child: Text(
+                          "Keyingisi",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 15),
+                        ),
                       ),
-                      Icon(Icons.navigate_next)
+                      Padding(
+                        padding: const EdgeInsets.all(9.0),
+                        child: Icon(
+                          Icons.navigate_next,
+                          color: Colors.white,
+                        ),
+                      ),
                     ],
                   ),
                 )
@@ -109,14 +125,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(image, height: 200), // Adjust image size as needed
+          Image.asset(image, height: 280, width: 280, fit: BoxFit.cover,), // Adjust image size as needed
           SizedBox(height: 40),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.only(left: 30, right: 30),
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
           ),
           SizedBox(height: 20),
@@ -127,7 +146,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.white70,
+                color: Colors.black,
               ),
             ),
           ),
