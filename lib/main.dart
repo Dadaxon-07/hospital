@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hospital/Snake.dart';
-import 'package:hospital/auth/create_password_page.dart';
+
 import 'package:hospital/startup/onboarding_page.dart';
 
 void main() {

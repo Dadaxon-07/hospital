@@ -1,11 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hospital/auth/create_password_page.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../home/dashboard_page.dart';
+import 'package:hospital/auth/otp_page.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingPage extends StatefulWidget {
   static final String id = 'intro_page';
@@ -31,20 +28,23 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 color: Colors.white,
                 image: 'assets/intro_images/intro-1.png',
                 title: "Qo'shimcha ish daromadi",
-                subtitle: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
+                subtitle:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
               ),
               buildPage(
                 color: Colors.white,
                 image: 'assets/intro_images/intro-2.png',
                 title: "Be'morlarni onlayn qabul qilish va davolash",
-                subtitle: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
+                subtitle:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
               ),
               buildPage(
                 color: Colors.white,
                 image: 'assets/intro_images/intro-3.png',
                 title:
                     "Bemorlarni uylariga borib davolash va qo'shimcha daromad olish",
-                subtitle: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
+                subtitle:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
               ),
             ],
           ),
@@ -70,15 +70,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   onTap: () {
                     if (_controller.page!.toInt() == 2) {
                       // Finish action
-
-                    }
-                    else {
+                    } else {
                       _controller.nextPage(
                         duration: Duration(milliseconds: 500),
                         curve: Curves.easeInOut,
                       );
                     }
-
                   },
                   child: Container(
                     height: 50.h,
@@ -116,7 +113,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CreatePasswordPage(),
+                        builder: (context) => const OTP_page(),
                       ),
                     );
                   },
@@ -144,7 +141,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 40.h,),
+          SizedBox(
+            height: 40.h,
+          ),
           Image.asset(image,
               height: MediaQuery.of(context).size.height / 2.6,
               width: MediaQuery.of(context).size.width / 1),
