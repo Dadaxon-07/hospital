@@ -68,9 +68,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 SizedBox(height: 20.h),
                 InkWell(
                   onTap: () {
+                    // 3-sahifada bo'lsa, keyingi sahifaga o'tish
                     if (_controller.page!.toInt() == 2) {
-                      // Finish action
+                      // 3-sahifa tugadi, boshqa sahifaga o'tish
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => OTP_page()),
+                      );
                     } else {
+                      // Sahifalarni o'zgartirish
                       _controller.nextPage(
                         duration: Duration(milliseconds: 500),
                         curve: Curves.easeInOut,
