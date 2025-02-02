@@ -116,6 +116,14 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
             ),
             Center(
               child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DashboardPage(),
+                    ),
+                  );
+                },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 8),
                   width: 300,

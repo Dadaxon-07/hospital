@@ -72,7 +72,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               child: Text( categories[index]["title"]!, textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.w800),),
                             ),
 
-                          Image.asset(categories[index]["image"]!, height: 120.h, width: 120.w, fit: BoxFit.cover,)
+                          Image.asset(categories[index]["image"]!, height: 100.h, width: 120.w, fit: BoxFit.cover,)
                         ],
                       ),
                     ),

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hospital/auth/create_password_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../home/dashboard_page.dart';
@@ -69,6 +70,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   onTap: () {
                     if (_controller.page!.toInt() == 2) {
                       // Finish action
+
                     }
                     else {
                       _controller.nextPage(
@@ -114,7 +116,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const DashboardPage(),
+                        builder: (context) => const CreatePasswordPage(),
                       ),
                     );
                   },
@@ -147,7 +149,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
               height: MediaQuery.of(context).size.height / 2.6,
               width: MediaQuery.of(context).size.width / 1),
           SizedBox(height: 35.h),
-          Center(
+          Padding(
+            padding: EdgeInsets.only(right: 10, left: 10),
             child: ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 250.w), // Maksimal kenglik
               child: Text(
@@ -159,7 +162,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           ),
           SizedBox(height: 20.h),
           ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: 150, maxWidth: 380),
+            constraints: BoxConstraints(maxHeight: 80, maxWidth: 380),
             child: Text(
               subtitle,
               textAlign: TextAlign.center,
