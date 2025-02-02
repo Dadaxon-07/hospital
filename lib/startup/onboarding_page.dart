@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hospital/auth/create_password_page.dart';
 
 import 'package:hospital/auth/otp_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -73,7 +74,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       // 3-sahifa tugadi, boshqa sahifaga o'tish
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => OTP_page()),
+                        MaterialPageRoute(builder: (context) => CreatePasswordPage()),
                       );
                     } else {
                       // Sahifalarni o'zgartirish

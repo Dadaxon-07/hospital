@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hospital/auth/otp_page.dart';
 import 'package:hospital/home/dashboard_page.dart';
 
 class CreatePasswordPage extends StatefulWidget {
@@ -120,7 +121,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DashboardPage(),
+                      builder: (context) => const OTP_page(),
                     ),
                   );
                 },

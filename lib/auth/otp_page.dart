@@ -56,7 +56,7 @@ class _OTP_pageState extends State<OTP_page> {
               // PIN kod tugagach boshqa sahifaga o'tish
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CreatePasswordPage()),
+                MaterialPageRoute(builder: (context) => DashboardPage()),
               );
             },
           ),
