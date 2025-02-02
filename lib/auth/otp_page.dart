@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hospital/auth/create_password_page.dart';
 import 'package:hospital/home/dashboard_page.dart';
 import 'package:pinput/pinput.dart';
 
@@ -55,7 +56,7 @@ class _OTP_pageState extends State<OTP_page> {
               // PIN kod tugagach boshqa sahifaga o'tish
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DashboardPage()),
+                MaterialPageRoute(builder: (context) => CreatePasswordPage()),
               );
             },
           ),
